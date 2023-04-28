@@ -9,26 +9,13 @@ namespace consoleApp.ModuloGerenciamento
 {
     public class MenuGerenciamento
     {
-        RepositorioMedicamento repositorioMedicamento;
-        RepositorioFuncionario repositorioFuncionario;
-        RepositorioFornecedor repositorioFornecedor;
-        RepositorioPaciente repositorioPaciente;
-        RepositorioEntrada repositorioEntrada;
-        RepositorioSaida repositorioSaida;
         TelaEntrada telaEntrada;
         TelaSaida telaSaida;
 
         public MenuGerenciamento(RepositorioFuncionario repositorioFuncionario, RepositorioFornecedor repositorioFornecedor, RepositorioMedicamento repositorioMedicamento, RepositorioPaciente repositorioPaciente, RepositorioEntrada repositorioEntrada, RepositorioSaida repositorioSaida)
         {
-            this.repositorioMedicamento = repositorioMedicamento;
-            this.repositorioFuncionario = repositorioFuncionario;
-            this.repositorioFornecedor = repositorioFornecedor;
-            this.repositorioPaciente = repositorioPaciente;
-            this.repositorioEntrada = repositorioEntrada;
-            this.repositorioSaida = repositorioSaida;
             this.telaEntrada = new TelaEntrada(repositorioEntrada, repositorioMedicamento, repositorioFuncionario);
             this.telaSaida = new TelaSaida(repositorioSaida, repositorioMedicamento, repositorioFuncionario, repositorioPaciente);
-
         }
 
         public void MostrarMenu()
