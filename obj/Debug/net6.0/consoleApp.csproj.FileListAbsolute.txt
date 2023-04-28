@@ -1,0 +1,15 @@
+C:\AP\RefatoracaoCM\consoleApp\bin\Debug\net6.0\consoleApp.exe
+C:\AP\RefatoracaoCM\consoleApp\bin\Debug\net6.0\consoleApp.deps.json
+C:\AP\RefatoracaoCM\consoleApp\bin\Debug\net6.0\consoleApp.runtimeconfig.json
+C:\AP\RefatoracaoCM\consoleApp\bin\Debug\net6.0\consoleApp.dll
+C:\AP\RefatoracaoCM\consoleApp\bin\Debug\net6.0\consoleApp.pdb
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.csproj.AssemblyReference.cache
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.AssemblyInfoInputs.cache
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.AssemblyInfo.cs
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.csproj.CoreCompileInputs.cache
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.dll
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\refint\consoleApp.dll
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.pdb
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\consoleApp.genruntimeconfig.cache
+C:\AP\RefatoracaoCM\consoleApp\obj\Debug\net6.0\ref\consoleApp.dll
