@@ -6,7 +6,6 @@ namespace consoleApp.ModuloFuncionario
 {
     public class Funcionario : EntidadeBase
     {
-
         public string telefone { get; set; }
         public Endereco? endereco { get; set; }
         public string cpf { get; set; }

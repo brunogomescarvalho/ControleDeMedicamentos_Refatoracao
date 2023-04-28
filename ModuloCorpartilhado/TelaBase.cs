@@ -3,23 +3,19 @@ using System.Collections;
 
 namespace consoleApp.ModuloCorpartilhado
 {
-    public abstract class TelaBase : IMostraInfos
+    public abstract class TelaBase
     {
         public RepositorioBase repositorioBase = null!;
         public abstract string nomeEntidade { get; set; }
         public abstract EntidadeBase ObterRegistro();
         public abstract void MostrarTabela(ArrayList registros, bool esperarTecla);
-        protected IMostraInfos info = null!;
+       
         public ArrayList erros = null!;
 
-        public TelaBase()
-        {
-            this.info = this;
-        }
-
+      
         public int MostrarMenu()
         {
-            info.MostrarTexto($"--- {nomeEntidade} ---");
+            MostrarTexto($"--- {nomeEntidade} ---");
             Console.WriteLine("1 --- Cadastrar");
             Console.WriteLine("2 --- Visualizar");
             Console.WriteLine("3 --- Editar");
@@ -32,7 +28,7 @@ namespace consoleApp.ModuloCorpartilhado
 
         public virtual void Cadastrar()
         {
-            info.MostrarTexto("---Cadastrar---");
+            MostrarTexto("---Cadastrar---");
 
             this.erros = new ArrayList();
 
@@ -42,13 +38,13 @@ namespace consoleApp.ModuloCorpartilhado
 
                 repositorioBase.Adicionar(entidade);
 
-                info.MostrarMensagem($"{nomeEntidade} cadastrado com sucesso", ConsoleColor.Green);
+                MostrarMensagem($"{nomeEntidade} cadastrado com sucesso", ConsoleColor.Green);
             }
             catch (NullReferenceException)
             {
                 foreach (var item in erros)
                 {
-                    info.MostrarErros($"{item}", ConsoleColor.Magenta);
+                    MostrarErros($"{item}", ConsoleColor.Magenta);
                 }
 
                 Console.ReadKey();
@@ -57,11 +53,11 @@ namespace consoleApp.ModuloCorpartilhado
 
         public virtual void Visualizar()
         {
-            info.MostrarTexto($"--- Listar Registros {nomeEntidade} ---\n");
+            MostrarTexto($"--- Listar Registros {nomeEntidade} ---\n");
 
             ArrayList registros = repositorioBase.BuscarTodos();
 
-            if (!info.ListaContemItens(registros))
+            if (!ListaContemItens(registros))
                 return;
 
             MostrarTabela(registros, true);
@@ -71,11 +67,11 @@ namespace consoleApp.ModuloCorpartilhado
         {
             this.erros = new ArrayList();
 
-            info.MostrarTexto($"--- Editar Registro {nomeEntidade} ---");
+            MostrarTexto($"--- Editar Registro {nomeEntidade} ---");
 
             ArrayList registros = repositorioBase.BuscarTodos();
 
-            if (!info.ListaContemItens(registros))
+            if (!ListaContemItens(registros))
                 return;
 
             MostrarTabela(registros, false);
@@ -103,7 +99,7 @@ namespace consoleApp.ModuloCorpartilhado
             {
                 foreach (var item in erros)
                 {
-                    info.MostrarErros($"{item}", ConsoleColor.Magenta);
+                    MostrarErros($"{item}", ConsoleColor.Magenta);
                 }
 
                 Console.ReadKey();
@@ -113,11 +109,11 @@ namespace consoleApp.ModuloCorpartilhado
 
         public void Excluir()
         {
-            info.MostrarTexto($"--- Excluir Registro {nomeEntidade} ---");
+            MostrarTexto($"--- Excluir Registro {nomeEntidade} ---");
 
             ArrayList registros = repositorioBase.BuscarTodos();
 
-            if (!info.ListaContemItens(registros))
+            if (!ListaContemItens(registros))
                 return;
 
             MostrarTabela(registros, false);
@@ -134,7 +130,7 @@ namespace consoleApp.ModuloCorpartilhado
             }
             catch (FormatException)
             {
-                info.MostrarMensagem("Id informado em um formato inválido", ConsoleColor.Magenta);
+                MostrarMensagem("Id informado em um formato inválido", ConsoleColor.Magenta);
             }
         }
 
@@ -144,10 +140,53 @@ namespace consoleApp.ModuloCorpartilhado
         {
             if (repositorioBase.ItemEncontrado())
             {
-                info.MostrarMensagem($"{nomeEntidade} {funcao} com sucesso", ConsoleColor.Green);
+                MostrarMensagem($"{nomeEntidade} {funcao} com sucesso", ConsoleColor.Green);
             }
             else
-                info.MostrarMensagem($"Não foi possível localizar o id solicitado", ConsoleColor.Magenta);
+                MostrarMensagem($"Não foi possível localizar o id solicitado", ConsoleColor.Magenta);
+        }
+
+        
+        public void MostrarMensagem(string msg, ConsoleColor cor)
+        {
+            Console.Clear();
+            Console.ForegroundColor = cor;
+            Console.WriteLine($"{msg}");
+            Console.ResetColor();
+            Console.ReadKey();
+
+        }
+        public void MostrarTexto(string texto)
+        {
+            Console.Clear();
+            Console.WriteLine(texto);
+        }
+
+        public bool ListaContemItens(ArrayList registros)
+        {
+            if (registros.Count == 0)
+            {
+                MostrarMensagem($"Nenhum {nomeEntidade} cadastrado até o momento...", ConsoleColor.Yellow);
+                return false;
+            }
+            return true;
+        }
+
+
+        public virtual void RenderizarTabela(ArrayList lista, bool esperarTecla)
+        {
+            foreach (var item in lista)
+                Console.WriteLine(item);
+
+            if (esperarTecla)
+                Console.ReadKey();
+        }
+
+        public void MostrarErros(string msg, ConsoleColor cor)
+        {
+            Console.ForegroundColor = cor;
+            Console.WriteLine($"{msg}");
+            Console.ResetColor();
         }
     }
 

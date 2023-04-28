@@ -2,7 +2,7 @@ using System.Collections;
 using System;
 using consoleApp.ModuloFuncionario;
 using consoleApp.ModuloMedicamento;
-using consoleApp.ModuloPaciente;
+
 using consoleApp.ModuloGerenciamento.Compartilhado;
 
 namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
@@ -27,7 +27,7 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
         {
             this.erros = new ArrayList();
 
-            info.MostrarTexto("--- Cadastrar Entrada de Medicamentos");
+            MostrarTexto("--- Cadastrar Entrada de Medicamentos");
 
             var medicamentos = repositorioMedicamento.BuscarTodos();
             var funcionarios = repositorioFuncionario.BuscarTodos();
@@ -53,7 +53,7 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
 
                 Medicamento medicamento = repositorioMedicamento.BuscarPorId(idMedicamento);
 
-                info.MostrarTexto("\nInforme a quantidade a ser inserida");
+                MostrarTexto("\nInforme a quantidade a ser inserida");
                 int quantidade = int.Parse(Console.ReadLine()!);
 
                 EntradaMedicamento entrada = funcionario == null || medicamento == null ? null! :
@@ -66,17 +66,17 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
 
                 repositorioBaseGerenciamento.Adicionar(entrada);
 
-                info.MostrarMensagem("Entrada de medicamentos cadastrada com sucesso", ConsoleColor.Green);
+                MostrarMensagem("Entrada de medicamentos cadastrada com sucesso", ConsoleColor.Green);
             }
             catch (FormatException)
             {
-                info.MostrarMensagem("Digite apenas números ao informar o id.", ConsoleColor.Magenta);
+                MostrarMensagem("Digite apenas números ao informar o id.", ConsoleColor.Magenta);
             }
             catch (NullReferenceException)
             {
                 foreach (var item in erros)
                 {
-                    info.MostrarErros($"{item}", ConsoleColor.Magenta);
+                    MostrarErros($"{item}", ConsoleColor.Magenta);
                 }
 
                 Console.ReadKey();
@@ -86,10 +86,10 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
 
         public override void Visualizar()
         {
-            info.MostrarTexto("--- Entradas Cadastradas ---\n");
+            MostrarTexto("--- Entradas Cadastradas ---\n");
             var registros = repositorioBaseGerenciamento.BuscarTodos();
 
-            if (!info.ListaContemItens(registros))
+            if (!ListaContemItens(registros))
                 return;
 
             Console.WriteLine($"{"ID",-5} | {"MEDICAMENTO",-20} | {"QTDE",-5} | {"DATA REGISTRO",-15}");
@@ -104,7 +104,7 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
 
         public void VisualizarEmFalta()
         {
-            info.MostrarTexto("--- Medicamentos em Falta ---\n");
+            MostrarTexto("--- Medicamentos em Falta ---\n");
 
             ArrayList medicamentos = repositorioMedicamento.BuscarTodos();
             ArrayList medicamentosEmFalta = new ArrayList();
@@ -114,30 +114,13 @@ namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
                 if (item.quantidade == 0)
                     medicamentosEmFalta.Add(item);
             }
-            if (!info.ListaContemItens(medicamentosEmFalta))
+            if (!ListaContemItens(medicamentosEmFalta))
             {
-                info.MostrarMensagem("Nenhum medicamento em falta até o momento", ConsoleColor.Green);
+                MostrarMensagem("Nenhum medicamento em falta até o momento", ConsoleColor.Green);
             }
 
-            info.RenderizarTabela(medicamentosEmFalta, true);
+            RenderizarTabela(medicamentosEmFalta, true);
         }
 
-        // public override void Visualizar()
-        // {
-        //     info.MostrarTexto($"--- {nomeEntidade} ---");
-        //     Console.WriteLine("1 --- Todas as Entradas");
-        //     Console.WriteLine("2 --- Medicamentos em falta");
-        //     Console.WriteLine("9 --- Voltar");
-        //     int opcao = int.Parse(Console.ReadLine()!);
-
-        //     if (opcao == 1)
-        //         VisualizarEntradas();
-
-        //     else if (opcao == 2)
-        //         VisualizarMedicamentosEmFalta();
-
-        //     else return;
-
-        // }
     }
 }

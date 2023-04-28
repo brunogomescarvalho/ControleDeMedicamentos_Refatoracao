@@ -19,24 +19,24 @@ namespace consoleApp.ModuloCorpartilhado
             Console.WriteLine($"{"ID",-5} | {"NOME",-20} | {"CPF",-15}");
             Console.WriteLine("------|----------------------|--------------");
 
-            info.RenderizarTabela(registros, esperarTecla);
+            RenderizarTabela(registros, esperarTecla);
         }
 
         public override Funcionario ObterRegistro()
         {
-            info.MostrarTexto("Informe o nome do funcionário:");
+            MostrarTexto("Informe o nome do funcionário:");
             string nome = Console.ReadLine()!;
 
             if (String.IsNullOrWhiteSpace(nome) || nome.Length < 3)
                 erros.Add("* Campo Nome inválido.");
 
-            info.MostrarTexto("Informe o CPF:");
+            MostrarTexto("Informe o CPF:");
             string cpf = Console.ReadLine()!;
 
             if (String.IsNullOrWhiteSpace(cpf) || cpf.Length < 10)
                 erros.Add("* Campo CPF inválido.");
 
-            info.MostrarTexto("Telefone:");
+            MostrarTexto("Telefone:");
             string telefone = Console.ReadLine()!;
 
             if (String.IsNullOrWhiteSpace(telefone) || telefone.Length < 8)
@@ -52,23 +52,6 @@ namespace consoleApp.ModuloCorpartilhado
             return new Funcionario(nome, cpf, telefone, endereco);
         }
 
-        // public override void VisualizarRegistros()
-        // {
-        //     MostrarTexto("1 Visualizar todos");
-        //     Console.WriteLine("2 Visualizar em aberto");
-        //     string opcao = Console.ReadLine()!;
-
-        //     if (opcao == "1")
-        //         base.VisualizarRegistros();
-        //     else if (opcao == "2")
-        //         VisualizarEmAberto();
-        // }
-
-        // private void VisualizarEmAberto()
-        // {
-        //     Console.WriteLine("--- Em aberto ---");
-        //     Console.ReadLine();
-        // }
     }
 
 }

@@ -25,29 +25,29 @@ namespace consoleApp.ModuloPaciente
             Console.WriteLine($"{"ID",-3} | {"NOME COMPLETO",-20} | {"IDADE",-5} | {"CARTÃO SAÚDE",-12} | {"TELEFONE",-12} | {cadastroEndereco.MostrarCabecalho()}");
             Console.WriteLine("----|----------------------|-------|--------------|--------------|-------------------------------------------------------------");
 
-           info.RenderizarTabela(registros, esperarTecla);
+            RenderizarTabela(registros, esperarTecla);
         }
 
         public override EntidadeBase ObterRegistro()
         {
-            info.MostrarTexto("Informe o primeiro nome do paciente:");
+            MostrarTexto("Informe o primeiro nome do paciente:");
             string nome = Console.ReadLine()!;
 
-            info.MostrarTexto("Informe o sobrenome do paciente:");
+            MostrarTexto("Informe o sobrenome do paciente:");
             string sobreNome = Console.ReadLine()!;
 
-            info.MostrarTexto("Data de nascimento: (dd/MM/yyyy)");
+            MostrarTexto("Data de nascimento: (dd/MM/yyyy)");
 
             DateTime dataNascimento = Convert.ToDateTime(Console.ReadLine()!);
 
-            info.MostrarTexto("Nr Cartão saúde:");
+            MostrarTexto("Nr Cartão saúde:");
             string nrCartao = Console.ReadLine()!;
 
-            info.MostrarTexto("Telefone:");
+            MostrarTexto("Telefone:");
             string telefone = Console.ReadLine()!;
 
             Endereco? endereco = cadastroEndereco.CadastrarEndereco();
-            
+
             return new Paciente(nome, sobreNome, dataNascimento, nrCartao, telefone, endereco);
         }
     }

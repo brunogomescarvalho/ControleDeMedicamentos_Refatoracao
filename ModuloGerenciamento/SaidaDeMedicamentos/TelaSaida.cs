@@ -28,7 +28,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
         public override void Cadastrar()
         {
-            info.MostrarTexto("--- Cadastrar Saída de Medicamentos");
+            MostrarTexto("--- Cadastrar Saída de Medicamentos");
 
             ArrayList medicamentos = repositorioMedicamento.BuscarTodos();
             ArrayList funcionarios = repositorioFuncionario.BuscarTodos();
@@ -42,7 +42,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
             if (listaMed || listaFunc || listaPac)
             {
-                info.MostrarMensagem($"Lista de{(listaPac ? "pacientes" : listaMed ? "medicamentos" : "funcionários")} não possui registros", ConsoleColor.DarkYellow);
+                MostrarMensagem($"Lista de{(listaPac ? "pacientes" : listaMed ? "medicamentos" : "funcionários")} não possui registros", ConsoleColor.DarkYellow);
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
                 Medicamento medicamento = repositorioMedicamento.BuscarPorId(idMedicamento);
 
-                info.MostrarTexto("\nInforme a quantidade informada na requisição do paciente");
+                MostrarTexto("\nInforme a quantidade informada na requisição do paciente");
                 int quantidade = int.Parse(Console.ReadLine()!);
 
                 saida = medicamento == null! || funcionario == null! || paciente == null ? null! :
@@ -69,28 +69,28 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
                 if (!saida.DescontarMedicamento())
                 {
-                    info.MostrarMensagem("\nA quantidade solicitada é superior a disponível em estoque.", ConsoleColor.Magenta); return;
+                    MostrarMensagem("\nA quantidade solicitada é superior a disponível em estoque.", ConsoleColor.Magenta); return;
                 }
 
                 repositorioBaseGerenciamento.Adicionar(saida);
 
-                info.MostrarMensagem("Requisição de Saída de Medicamentos cadastrada com sucesso.", ConsoleColor.Green);
+                MostrarMensagem("Requisição de Saída de Medicamentos cadastrada com sucesso.", ConsoleColor.Green);
 
             }
             catch (FormatException)
             {
-                info.MostrarMensagem("Digite apenas números ao informar o id.", ConsoleColor.Magenta);
+                MostrarMensagem("Digite apenas números ao informar o id.", ConsoleColor.Magenta);
             }
             catch (NullReferenceException)
             {
-                info.MostrarMensagem("Id solicitado não encontrado.", ConsoleColor.DarkMagenta);
+                MostrarMensagem("Id solicitado não encontrado.", ConsoleColor.DarkMagenta);
             }
 
         }
 
         public override void Visualizar()
         {
-            info.MostrarTexto("--- Saídas Cadastradas ---\n");
+            MostrarTexto("--- Saídas Cadastradas ---\n");
             var registros = repositorioBaseGerenciamento.BuscarTodos();
 
             if (registros.Count == 0)
@@ -112,7 +112,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
         public void VisualizarMaisSolicitados()
         {
-            info.MostrarTexto("--- Medicamentos Mais Solicitados ---\n");
+            MostrarTexto("--- Medicamentos Mais Solicitados ---\n");
 
             ArrayList saidas = repositorioBaseGerenciamento.BuscarTodos();
 
@@ -142,7 +142,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
         // public override void Visualizar()
         // {
-        //     info.MostrarTexto($"--- {nomeEntidade} ---");
+        //   MostrarTexto($"--- {nomeEntidade} ---");
         //     Console.WriteLine("1 --- Todas as Saídas");
         //     Console.WriteLine("2 --- Medicamentos mais solicitados");
         //     Console.WriteLine("9 --- Voltar");

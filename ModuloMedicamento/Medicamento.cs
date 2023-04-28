@@ -9,7 +9,7 @@ namespace consoleApp.ModuloMedicamento
 {
     public class Medicamento : EntidadeBase
     {
-  public Fornecedor fornecedor { get; private set; }
+        public Fornecedor fornecedor { get; private set; }
         public string descricao { get; private set; }
         public DateTime dataFabricacao { get; private set; }
         public DateTime dataValidade { get; private set; }
