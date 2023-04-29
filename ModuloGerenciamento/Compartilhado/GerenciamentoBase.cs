@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloFuncionario;
 using consoleApp.ModuloMedicamento;
 
@@ -23,7 +19,7 @@ namespace consoleApp.ModuloGerenciamento.Compartilhado
             this.dataRegistro = dataRegistro;
         }
 
-       
-       
+
+
     }
 }

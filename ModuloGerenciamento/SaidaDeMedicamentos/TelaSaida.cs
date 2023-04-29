@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
 using consoleApp.ModuloFuncionario;
 using consoleApp.ModuloGerenciamento.Compartilhado;
 using consoleApp.ModuloMedicamento;
 using consoleApp.ModuloPaciente;
+using System.Collections;
 
 namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 {

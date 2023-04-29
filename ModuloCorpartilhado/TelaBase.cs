@@ -9,10 +9,10 @@ namespace consoleApp.ModuloCorpartilhado
         public abstract string nomeEntidade { get; set; }
         public abstract EntidadeBase ObterRegistro();
         public abstract void MostrarTabela(ArrayList registros, bool esperarTecla);
-       
+
         public ArrayList erros = null!;
 
-      
+
         public int MostrarMenu()
         {
             MostrarTexto($"--- {nomeEntidade} ---");
@@ -146,7 +146,7 @@ namespace consoleApp.ModuloCorpartilhado
                 MostrarMensagem($"Não foi possível localizar o id solicitado", ConsoleColor.Magenta);
         }
 
-        
+
         public void MostrarMensagem(string msg, ConsoleColor cor)
         {
             Console.Clear();

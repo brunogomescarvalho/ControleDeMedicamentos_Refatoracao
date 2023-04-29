@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloCorpartilhado;
 using consoleApp.ModuloEndereco;
 
 namespace consoleApp.ModuloFornecedor
 {
-    public class Fornecedor : EntidadeBase 
+    public class Fornecedor : EntidadeBase
     {
         public string cnpj { get; set; }
         public string telefone { get; set; }
@@ -30,7 +26,7 @@ namespace consoleApp.ModuloFornecedor
             this.endereco = fornecedor.endereco;
         }
 
-          public override string ToString()
+        public override string ToString()
         {
             return $"{id,-3} | {nome,-15} | {cnpj,-15} | {telefone,-15} | {endereco}";
         }

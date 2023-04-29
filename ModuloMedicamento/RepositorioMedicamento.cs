@@ -6,7 +6,7 @@ namespace consoleApp.ModuloMedicamento
     public class RepositorioMedicamento : RepositorioBase, IComparer
     {
 
-         public int Compare(object? x, object? y)
+        public int Compare(object? x, object? y)
         {
             Medicamento mx = (Medicamento)x!;
             Medicamento my = (Medicamento)y!;
@@ -16,7 +16,7 @@ namespace consoleApp.ModuloMedicamento
 
             else if (mx.quantidade == my.quantidade)
                 return 0;
-                
+
             else return -1;
         }
 

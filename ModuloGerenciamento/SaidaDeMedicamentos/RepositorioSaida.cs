@@ -1,9 +1,5 @@
-using System.Collections;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloGerenciamento.Compartilhado;
+using System.Collections;
 
 namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 {
@@ -20,7 +16,7 @@ namespace consoleApp.ModuloGerenciamento.SaidaDeMedicamentos
 
             else if (sx.medicamento.id == sy.medicamento.id)
                 return 0;
-                
+
             else
                 return -1;
 

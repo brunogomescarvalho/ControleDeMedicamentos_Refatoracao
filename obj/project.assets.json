@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\7brun\\.nuget\\packages\\": {}
+    "C:\\Users\\Bruno\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AP\\RefatoracaoCM\\consoleApp\\consoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\Bruno\\Source\\Repos\\brunogomescarvalho\\ControleDeMedicamentos_Refatoracao\\consoleApp.csproj",
       "projectName": "consoleApp",
-      "projectPath": "C:\\AP\\RefatoracaoCM\\consoleApp\\consoleApp.csproj",
-      "packagesPath": "C:\\Users\\7brun\\.nuget\\packages\\",
-      "outputPath": "C:\\AP\\RefatoracaoCM\\consoleApp\\obj\\",
+      "projectPath": "C:\\Users\\Bruno\\Source\\Repos\\brunogomescarvalho\\ControleDeMedicamentos_Refatoracao\\consoleApp.csproj",
+      "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bruno\\Source\\Repos\\brunogomescarvalho\\ControleDeMedicamentos_Refatoracao\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\7brun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,16 +1,16 @@
-﻿using consoleApp.ModuloEndereco;
-using consoleApp.ModuloCorpartilhado;
+﻿using consoleApp.ModuloCorpartilhado;
+using consoleApp.ModuloEndereco;
 using consoleApp.ModuloFornecedor;
 using consoleApp.ModuloFuncionario;
-using consoleApp.ModuloMedicamento;
-using consoleApp.ModuloPaciente;
+using consoleApp.ModuloGerenciamento;
 using consoleApp.ModuloGerenciamento.EntradaDeMedicamentos;
 using consoleApp.ModuloGerenciamento.SaidaDeMedicamentos;
-using consoleApp.ModuloGerenciamento;
+using consoleApp.ModuloMedicamento;
+using consoleApp.ModuloPaciente;
 
+RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
 RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
 RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
-RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
 RepositorioPaciente repositorioPaciente = new RepositorioPaciente();
 RepositorioEntrada repositorioEntrada = new RepositorioEntrada();
 RepositorioSaida repositorioSaida = new RepositorioSaida();
@@ -18,8 +18,9 @@ RepositorioSaida repositorioSaida = new RepositorioSaida();
 AdicionarAlgunsDadosNoSistema(repositorioMedicamento, repositorioPaciente, repositorioFuncionario, repositorioSaida, repositorioFornecedor);
 
 TelaBase tela = null!;
-bool continuar = true;
 MenuGerenciamento menuGerenciamento = null!;
+bool continuar = true;
+
 
 while (continuar)
 {
@@ -52,8 +53,10 @@ while (continuar)
             default: continue;
 
         }
+        if (opcaoMenu == 5)
+            menuGerenciamento.MostrarMenu();
 
-        if (opcaoMenu == 1 || opcaoMenu == 2 || opcaoMenu == 3 || opcaoMenu == 4)
+        else if (opcaoMenu == 1 || opcaoMenu == 2 || opcaoMenu == 3 || opcaoMenu == 4)
         {
             int opcaoSubMenu = 0;
 
@@ -74,9 +77,6 @@ while (continuar)
                 }
             }
         }
-
-        else if (opcaoMenu == 5)
-            menuGerenciamento.MostrarMenu();
 
     }
     catch (FormatException)

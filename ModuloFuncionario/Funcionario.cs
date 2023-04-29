@@ -1,4 +1,3 @@
-using System;
 using consoleApp.ModuloCorpartilhado;
 using consoleApp.ModuloEndereco;
 

@@ -1,9 +1,7 @@
-using System.Collections;
-using System;
 using consoleApp.ModuloFuncionario;
-using consoleApp.ModuloMedicamento;
-
 using consoleApp.ModuloGerenciamento.Compartilhado;
+using consoleApp.ModuloMedicamento;
+using System.Collections;
 
 namespace consoleApp.ModuloGerenciamento.EntradaDeMedicamentos
 {

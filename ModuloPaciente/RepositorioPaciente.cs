@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloCorpartilhado;
 
 namespace consoleApp.ModuloPaciente
@@ -10,7 +6,7 @@ namespace consoleApp.ModuloPaciente
     {
         public override Paciente BuscarPorId(int id)
         {
-            return(Paciente) base.BuscarPorId(id);
+            return (Paciente)base.BuscarPorId(id);
         }
     }
 }

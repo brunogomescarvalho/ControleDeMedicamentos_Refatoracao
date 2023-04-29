@@ -1,6 +1,6 @@
-using System.Collections;
 using consoleApp.ModuloCorpartilhado;
 using consoleApp.ModuloFornecedor;
+using System.Collections;
 
 namespace consoleApp.ModuloMedicamento
 {
@@ -25,13 +25,13 @@ namespace consoleApp.ModuloMedicamento
             if (fornecedor == null)
                 return null!;
 
-           MostrarTexto("Informe o nome:");
+            MostrarTexto("Informe o nome:");
             string nome = Console.ReadLine()!;
 
             if (string.IsNullOrWhiteSpace(nome) || nome.Length < 3)
                 erros.Add("* Nome do medicamento inválido.");
 
-           MostrarTexto("Informe a descrição:");
+            MostrarTexto("Informe a descrição:");
             string descricao = Console.ReadLine()!;
 
             if (string.IsNullOrWhiteSpace(descricao) || descricao.Length < 3)
@@ -42,10 +42,10 @@ namespace consoleApp.ModuloMedicamento
             int qtd = default;
             try
             {
-               MostrarTexto("Informe a data de fabricação: (dd/MM/yyyy)");
+                MostrarTexto("Informe a data de fabricação: (dd/MM/yyyy)");
                 dataFabricacao = Convert.ToDateTime(Console.ReadLine()!);
 
-               MostrarTexto("Informe a data de vencimento: (dd/MM/yyyy)");
+                MostrarTexto("Informe a data de vencimento: (dd/MM/yyyy)");
                 dataVenc = Convert.ToDateTime(Console.ReadLine()!);
             }
             catch (FormatException)
@@ -53,7 +53,7 @@ namespace consoleApp.ModuloMedicamento
                 erros.Add("* Data informada em um formato inválido.");
             }
 
-           MostrarTexto("Informe o Lote:");
+            MostrarTexto("Informe o Lote:");
             string lote = Console.ReadLine()!;
 
             if (string.IsNullOrWhiteSpace(lote) || lote.Length < 3)
@@ -61,7 +61,7 @@ namespace consoleApp.ModuloMedicamento
 
             try
             {
-               MostrarTexto("Informe a quantidade:");
+                MostrarTexto("Informe a quantidade:");
                 qtd = int.Parse(Console.ReadLine()!);
 
                 if (qtd < 0)
@@ -87,7 +87,7 @@ namespace consoleApp.ModuloMedicamento
             if (!ListaContemItens(fornecedores))
                 return null!;
 
-           RenderizarTabela(fornecedores, false);
+            RenderizarTabela(fornecedores, false);
 
             Console.WriteLine("\nInforme o id do fornecedor:");
             string id = Console.ReadLine()!;

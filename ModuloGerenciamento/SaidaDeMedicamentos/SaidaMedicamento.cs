@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloFuncionario;
 using consoleApp.ModuloGerenciamento.Compartilhado;
 using consoleApp.ModuloMedicamento;

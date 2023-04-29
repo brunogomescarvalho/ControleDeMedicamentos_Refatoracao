@@ -1,4 +1,3 @@
-using System;
 using consoleApp.ModuloFuncionario;
 using consoleApp.ModuloGerenciamento.Compartilhado;
 using consoleApp.ModuloMedicamento;

@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using consoleApp.ModuloCorpartilhado;
 using consoleApp.ModuloEndereco;
+using System.Collections;
 
 namespace consoleApp.ModuloFornecedor
 {

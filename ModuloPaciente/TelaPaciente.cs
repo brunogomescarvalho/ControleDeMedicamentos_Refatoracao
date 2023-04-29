@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using consoleApp.ModuloCorpartilhado;
 using consoleApp.ModuloEndereco;
+using System.Collections;
 
 namespace consoleApp.ModuloPaciente
 {
@@ -30,25 +26,54 @@ namespace consoleApp.ModuloPaciente
 
         public override EntidadeBase ObterRegistro()
         {
+            this.erros = new ArrayList();
+
             MostrarTexto("Informe o primeiro nome do paciente:");
             string nome = Console.ReadLine()!;
+
+            if (nome.Trim() == string.Empty || nome.Trim().Length < 3)
+            {
+                this.erros.Add("* O campo nome precisa ter no mínimo três letras.");
+            }
 
             MostrarTexto("Informe o sobrenome do paciente:");
             string sobreNome = Console.ReadLine()!;
 
-            MostrarTexto("Data de nascimento: (dd/MM/yyyy)");
-
-            DateTime dataNascimento = Convert.ToDateTime(Console.ReadLine()!);
+            if (sobreNome.Trim() == string.Empty || sobreNome.Trim().Length < 3)
+            {
+                this.erros.Add("* O campo sobrenome precisa ter no mínimo três letras.");
+            }
+            DateTime dataNascimento = default;
+            try
+            {
+                MostrarTexto("Data de nascimento: (dd/MM/yyyy)");
+                dataNascimento = Convert.ToDateTime(Console.ReadLine()!);
+            }
+            catch (FormatException)
+            {
+                this.erros.Add("* Data informada em um formato inválido");
+            }
 
             MostrarTexto("Nr Cartão saúde:");
             string nrCartao = Console.ReadLine()!;
+
+            if (nrCartao.Trim() == string.Empty)
+            {
+                this.erros.Add("* O Número do Cartao é campo obrigatório.");
+            }
 
             MostrarTexto("Telefone:");
             string telefone = Console.ReadLine()!;
 
             Endereco? endereco = cadastroEndereco.CadastrarEndereco();
 
-            return new Paciente(nome, sobreNome, dataNascimento, nrCartao, telefone, endereco);
+            if (endereco == null)
+            {
+                erros.Add("* Endereço contém campos inválidos");
+            }
+
+
+            return erros.Count > 0 ? null! : new Paciente(nome, sobreNome, dataNascimento, nrCartao, telefone, endereco);
         }
     }
 }

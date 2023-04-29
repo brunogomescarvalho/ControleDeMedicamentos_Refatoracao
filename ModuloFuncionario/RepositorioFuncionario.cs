@@ -1,4 +1,3 @@
-using System;
 using consoleApp.ModuloCorpartilhado;
 
 namespace consoleApp.ModuloFuncionario
@@ -7,8 +6,8 @@ namespace consoleApp.ModuloFuncionario
     {
         public override Funcionario BuscarPorId(int id)
         {
-            return(Funcionario)base.BuscarPorId(id);
+            return (Funcionario)base.BuscarPorId(id);
         }
-        
+
     }
 }

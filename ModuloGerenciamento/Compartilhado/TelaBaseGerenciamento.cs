@@ -1,5 +1,4 @@
 using System.Collections;
-using consoleApp.ModuloCorpartilhado;
 
 
 namespace consoleApp.ModuloGerenciamento.Compartilhado
@@ -58,7 +57,7 @@ namespace consoleApp.ModuloGerenciamento.Compartilhado
             return id;
         }
 
-        
+
         public void MostrarMensagem(string msg, ConsoleColor cor)
         {
             Console.Clear();
